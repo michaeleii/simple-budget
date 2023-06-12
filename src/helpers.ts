@@ -68,7 +68,9 @@ export const createExpense = ({
 export const deleteItem = (key: string, id = "") => {
   const existingData = fetchData(key);
   if (id) {
-    const newData = existingData.filter((item) => item.id !== id);
+    const newData = existingData.filter(
+      (item: { id: string }) => item.id !== id
+    );
     return localStorage.setItem(key, JSON.stringify(newData));
   } else {
     return localStorage.removeItem(key);
@@ -103,7 +105,7 @@ export const formatCurrency = (amount: number) => {
 };
 
 //Format Percentages for Budgets
-export const formatPercentage = (amount) => {
+export const formatPercentage = (amount: number) => {
   return amount.toLocaleString(undefined, {
     style: "percent",
     minimumFractionDigits: 0,

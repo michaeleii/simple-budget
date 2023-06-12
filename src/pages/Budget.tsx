@@ -1,5 +1,4 @@
 import { useLoaderData } from "react-router-dom";
-import { budgetLoader } from "../loaders/budget";
 import BudgetItem from "../components/BudgetItem";
 import AddExpenseForm from "../components/AddExpenseForm";
 import Table from "../components/Table";
