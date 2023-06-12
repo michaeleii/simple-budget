@@ -5,13 +5,15 @@ import AddExpenseForm from "../components/AddExpenseForm";
 import Table from "../components/Table";
 
 function Budget() {
-  const { budget, expenses } = useLoaderData();
+  const { budget, expenses } = useLoaderData() as any;
   return (
     <div
       className="grid-lg"
-      style={{
-        "--accent": budget.color,
-      }}
+      style={
+        {
+          "--accent": budget.color,
+        } as React.CSSProperties
+      }
     >
       <h1 className="h2">
         <span className="accent">{budget.name} </span>

@@ -29,9 +29,11 @@ function ExpenseItem({
         <td>
           <Link
             to={`/budget/${budget.id}`}
-            style={{
-              "--accent": budget.color,
-            }}
+            style={
+              {
+                "--accent": budget.color,
+              } as React.CSSProperties
+            }
           >
             {budget.name}
           </Link>

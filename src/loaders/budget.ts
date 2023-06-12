@@ -1,6 +1,6 @@
 import { getAllMatchingItems } from "../helpers";
 
-export async function budgetLoader({ params }) {
+export async function budgetLoader({ params }: { params: any }) {
   const budget = await getAllMatchingItems("budgets", "id", params.id)[0];
   const expenses = await getAllMatchingItems("expenses", "budgetId", params.id);
   if (!budget)

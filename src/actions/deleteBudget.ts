@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 import { deleteItem, getAllMatchingItems } from "../helpers";
 import { redirect } from "react-router-dom";
 
-function deleteBudget({ params }) {
+function deleteBudget({ params }: { params: any }) {
   try {
     deleteItem("budgets", params.id);
     const budgetExpenses = getAllMatchingItems(
@@ -10,7 +10,9 @@ function deleteBudget({ params }) {
       "budgetId",
       params.id
     );
-    budgetExpenses.forEach((expense) => deleteItem("expenses", expense.id));
+    budgetExpenses.forEach((expense: { id: string }) =>
+      deleteItem("expenses", expense.id)
+    );
     toast.success(`Budget deleted!`);
     return redirect("/");
   } catch (err) {

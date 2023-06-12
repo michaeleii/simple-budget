@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import { createExpense, deleteItem } from "../helpers";
 
-export async function budgetAction({ request }) {
+export async function budgetAction({ request }: { request: any }) {
   const data = await request.formData();
   const { _action, ...values } = Object.fromEntries(data);
   if (_action === "createExpense") {

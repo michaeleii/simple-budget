@@ -65,7 +65,7 @@ export const createExpense = ({
 
 //delete item
 
-export const deleteItem = (key: string, id = null) => {
+export const deleteItem = (key: string, id = "") => {
   const existingData = fetchData(key);
   if (id) {
     const newData = existingData.filter((item) => item.id !== id);

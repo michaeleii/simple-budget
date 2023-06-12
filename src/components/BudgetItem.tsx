@@ -3,16 +3,29 @@ import { formatCurrency, formatPercentage, totalSpent } from "../helpers";
 import { BanknotesIcon } from "@heroicons/react/24/outline";
 import { TrashIcon } from "@heroicons/react/24/outline";
 
-function BudgetItem({ budget, showDelete = false }) {
+function BudgetItem({
+  budget,
+  showDelete = false,
+}: {
+  budget: {
+    id: string;
+    name: string;
+    amount: number;
+    color: string;
+  };
+  showDelete?: boolean;
+}) {
   const { id, name, amount, color } = budget;
   const budgetSpent = totalSpent(id);
 
   return (
     <div
       className="budget"
-      style={{
-        "--accent": color, // CSS custom property
-      }}
+      style={
+        {
+          "--accent": color, // CSS custom property
+        } as React.CSSProperties
+      }
     >
       <div className="progress-text">
         <h3>{name}</h3>
